@@ -1,4 +1,6 @@
 import random
+import time
+
 
 dice_art = {
     1: (
@@ -67,5 +69,12 @@ for line in range(5):
 
 for die in dice:
     total += die
+
+
+dots = "."
+for i in range(1,10)
+	dots = dots * (i%3+1)
+	print(f"\rLoading{dots}", end=" ")
+	time.sleep(0.5)
 
 print(f"Total is: {total}")
