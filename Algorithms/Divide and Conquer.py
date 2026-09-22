@@ -1,40 +1,40 @@
-numbers = [38, 27, 43, 3, 9, 82, 10]
+import time
 
-def merge_sort(arr):
-    # Base case: arrays with 0 or 1 element are already sorted
-    if len(arr) <= 1:
-        return arr
+num = [1,5,2,7,3,6,5,8,6,4]
 
-    # 1. Divide: Find the middle and split the array
-    middle = len(arr) // 2
-    left_half = arr[:middle]
-    right_half = arr[middle:]
-
-    # 2. Conquer: Recursively sort both halves
-    left_sorted = merge_sort(left_half)
-    right_sorted = merge_sort(right_half)
-
-    # 3. Combine: Merge the sorted halves
-    return merge(left_sorted, right_sorted)
-
-
+#Divides the numbers into smaller pieces
+def test(arr):
+	if len(arr) > 1:
+		left_side = arr[:len(arr)//2]
+		right_side = arr[len(arr)//2:]
+			
+		left_sort = test(left_side)
+		right_sort = test(right_side)
+		return merge(left_sort, right_sort)
+	else:
+		return arr	
+		
+#Rearranges numbers into order from comparing the left side and right side
 def merge(left, right):
-    sorted_array = []
-    i = j = 0
-
-    # Compare elements from both lists and merge them in order
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            sorted_array.append(left[i])
-            i += 1
-        else:
-            sorted_array.append(right[j])
-            j += 1
-
-    # Append any remaining elements that were left over
-    sorted_array.extend(left[i:])
-    sorted_array.extend(right[j:])
-
-    return sorted_array
-
-print("Sorted:", merge_sort(numbers))
+	result = []
+	i = j = 0
+	while i < len(left) and j < len(right):
+		if left[i] <= right[j]:
+			result.append(left[i])
+			i += 1
+		else:
+			result.append(right[j])
+			j += 1
+	#Cleanup for leftover numbers in list
+	result.extend(left[i:])
+	result.extend(right[j:])
+	return result
+	
+#Output
+print(f"Your numbers: {num}")
+for i in range(15):
+	dots = "."
+	print(f"\rLoading.{dots*(i%3)}", end="")
+	time.sleep(0.4)
+print()
+print(test(num))
