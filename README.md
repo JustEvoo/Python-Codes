@@ -6,7 +6,7 @@ Currently learning Python. This repo is a collection of small scripts and mini-p
 
 ### Projects
 
-* **`Main.py`** - Main entry point / scratch file for testing code snippets
+* **`Banking_Program.py`** - Main entry point / scratch file for testing code snippets
 * **`Number_Guessing_Game.py`** - A simple number guessing game
 * **`Dice_Roller.py`** - Simulates rolling one or more dice
 * **`Rock_Paper_Scissors.py`** - Classic Rock, Paper, Scissors game against the computer
